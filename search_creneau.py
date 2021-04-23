@@ -12,6 +12,9 @@ import time
 from email.mime.multipart import MIMEMultipart
 from email.mime.text import MIMEText
 
+# Import credentials : toaddr; fromaddr; uid_mail
+from mycredentials import *
+
 PATH = "/local/home/ronan/soft/COVID/chromedriver_linux64/chromedriver"
 driver = webdriver.Chrome(PATH)
 
@@ -36,8 +39,8 @@ for document in documents:
 if dispo == True:
 
           # -------------------------- Send email to contact
-           toaddr = "ronan@colmou.fr"
-           fromaddr = "aurocherie3@gmail.com" 
+#           toaddr = "XXX"
+#           fromaddr = "XXX" 
            # instance of MIMEMultipart
            msg = MIMEMultipart()
            # storing the senders email address
@@ -67,7 +70,7 @@ if dispo == True:
            # start TLS for security
            s.starttls()
            # Authentication
-           s.login(fromaddr, "auroch")
+           s.login(fromaddr, uid_mail)
            # Converts the Multipart msg into a string
            text_mail = msg.as_string()
            # sending the mail
